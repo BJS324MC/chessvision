@@ -32,7 +32,7 @@ addEventListener("load",async function(){
   image.addEventListener("load", e => {
     const squares=tf.stack(
         extract(
-          tf.image.resizeNearestNeighbor(
+          tf.image.resizeBilinear(
             tf.browser.fromPixels(image)
           ,[960,960])
         )
