@@ -1,0 +1,27 @@
+body {
+  font-size: 15pt;
+  font-family: Noto Sans Display;
+  margin:0;
+}
+#main,#buttons{
+  margin:20px;
+  display: flex;
+  justify-content: space-around;
+}
+#buttons{
+  height:100px;
+}
+#upload{
+  font-size:20pt;
+  color:white;
+  text-align: center;
+  padding:5%;
+  border-radius:10px;
+  background:linear-gradient(45deg,#B5BBFD,#747FEF);
+}
+#header{
+  color:white;
+  text-align: center;
+  background:linear-gradient(#B5BBFD,#747FEF);
+  padding:8%;
+}

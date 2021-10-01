@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chess Image Extractor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chess/chessboard-1.0.0.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="chess/chessboard-1.0.0.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@300&display=swap" rel="stylesheet">
+  <script src="tf.min.js"></script>
+  
+</head>
+<body>
+  <header id="header">
+    <h1>Chess Vision</h1>
+    <p>An AI to extract chess games from your images.</p>
+  </header>
+  <section id="main">
+    <div id="myBoard"></div><img id="preview" width=300 height=200>
+  </section>
+  <section id="buttons">
+    <label for="file"><div id="upload">Upload Image</div></label>
+  </section>
+  <input id="file" name="file" accept="image/*" type="file" style="display:none">
+  <script>
+    let ln=Math.min(innerWidth,innerHeight)/(innerWidth<400?1.1:1.9);
+    document.getElementById("myBoard").style.width=ln+"px";
+    document.getElementById("preview").width=ln;
+    document.getElementById("preview").height=ln;
+    document.getElementById("upload").style.width=ln+"px";
+  </script>
+  <script src="util.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
