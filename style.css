@@ -4,20 +4,25 @@ body {
   margin:0;
 }
 #main,#buttons{
-  margin:20px;
   display: flex;
   justify-content: space-around;
-}
-#buttons{
-  height:100px;
+  align-items: center;
 }
 #upload{
   font-size:20pt;
   color:white;
+  padding:20px 30px;
   text-align: center;
-  padding:5%;
   border-radius:10px;
   background:linear-gradient(45deg,#B5BBFD,#747FEF);
+}
+#reset {
+  font-size: 20pt;
+  color: white;
+  padding:20px 30px;
+  text-align: center;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #ED258E, #FF0000);
 }
 #header{
   color:white;

@@ -1,5 +1,4 @@
-
-var board;
+var board,pos;
 const fileinput=document.getElementById("file"),
       preview=document.getElementById("preview");
 var image=new Image();
@@ -18,8 +17,11 @@ const pieceType = {
   11: "bQ",
   12: "bK"
 };
+document.getElementById("reset").addEventListener("click",e=>board.position(pos))
+document.getElementById("myBoard").addEventListener("touchmove",e=>e.preventDefault())
 addEventListener("load",async function(){
-  board=ChessBoard("myBoard")
+  board=ChessBoard("myBoard",{draggable:true,sparePieces:true,position:"start"});
+  pos=board.fen();
   model=await tf.loadGraphModel("model/model.json")
   fileinput.addEventListener("change", e => {
     const [file] = fileinput.files
@@ -32,13 +34,13 @@ addEventListener("load",async function(){
   image.addEventListener("load", e => {
     const squares=tf.stack(
         extract(
-          tf.image.resizeBilinear(
+          tf.image.resizeNearestNeighbor(
             tf.browser.fromPixels(image)
           ,[960,960])
         )
       ).toFloat();
     const prediction=model.predict(squares).argMax(1).arraySync();
-    let pos={};
+    pos={};
     for(let i in prediction){
       if(prediction[i]==0)continue;
       pos[String.fromCharCode(97+~~(i/8))+(7-i%8+1)]=pieceType[prediction[i]];

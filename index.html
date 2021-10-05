@@ -21,10 +21,12 @@
     <p>An AI to extract chess games from your images.</p>
   </header>
   <section id="main">
-    <div id="myBoard"></div><img id="preview" width=300 height=200>
+    <img id="preview" width=300 height=200><div id="myBoard"></div>
   </section>
   <section id="buttons">
     <label for="file"><div id="upload">Upload Image</div></label>
+    <div id="reset">Reset Board</div>
+    <div id="copy">Copy FEN</div>
   </section>
   <input id="file" name="file" accept="image/*" type="file" style="display:none">
   <script>
@@ -32,7 +34,6 @@
     document.getElementById("myBoard").style.width=ln+"px";
     document.getElementById("preview").width=ln;
     document.getElementById("preview").height=ln;
-    document.getElementById("upload").style.width=ln+"px";
   </script>
   <script src="util.js"></script>
   <script src="main.js"></script>
